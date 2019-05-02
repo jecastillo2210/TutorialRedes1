@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>TAREA 1 :: Aplicacion mobil </title>
+<link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>Tutorial Redes</h1>
+	</div>
+	<div data-role="content">
+	  <p><strong><em>Ruteo Estatico</em></strong></p>
+	  <ul data-role="listview">
+	    <li><a href="#page2">IP ROUTE</a><a href="#page4"></a></li>
+      </ul>
+	  <p><strong><em>Ruteo Dinamico</em></strong></p>
+	  <ul data-role="listview">
+		  <li><a href="#page3">EIGRP</a></li>
+          <li><a href="#page4">OSPF</a></li>
+		  <li><a href="#page5">BGP</a></li>
+		</ul>		
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page2">
+	<div data-role="header">
+		<h1>Ip route</h1>
+	</div>
+	<div data-role="content">
+	  <p>El enrutamiento es fundamental para cualquier red de datos, ya que transfiere información a través de una internetwork de origen a destino. Los routers son dispositivos que se encargan de transferir paquetes de una red a la siguiente.	    </p>
+	  <p>Las rutas estáticas son definidas manualmente por el administrador para que el router aprenda sobre una red remota. Las rutas estáticas necesitan pocos recursos del sistema, es recomendable utilizarlas cuando nuestra red esté compuesta por unos cuantos routers o que la red se conecte a internet solamente a través de un único ISP.	    </p>
+	  <p>Las rutas estáticas son muy comunes y no requieren la misma cantidad de procesamiento y sobrecarga que, como veremos, requieren los protocolos de enrutamiento dinámico.	    </p>
+	  <p>El comando para configurar una ruta estática es "ip route" y su sintaxis más simple esla siguiente:	    </p>
+	  <p><strong>router(config)# ip route direccion-red mascara-subred { direccion-ip | interfaz-salida }</strong></p>
+	  <p>Donde:	    </p>
+	  <p><strong>dirección-red:</strong> Es la dirección de la red remota que deseamos alcanzar. </p>
+	  <p><strong>máscara-subred:</strong> máscara de subred de la red remota. </p>
+	  <p><strong>dirección-ip:</strong> Dirección ip de la interfaz del router vecino (ip del siguiente salto). </p>
+	  <p><strong>interfaz-salida:</strong> Interfaz que utilizará el router para enviar paquetes a la red remota de destino. </p>
+	  <p>Por lo tanto una ruta estática puede configurarse de 2 maneras:	    </p>
+	  <p><em>router(config)# ip route direccion-red mascara-subred direccion-ip</em></p>
+	  <p><em>router(config)# ip route direccion-red mascara-subred interfaz-salida</em> </p>
+	  <p style="margin-bottom: .0001pt"><font size="3"></font>
+	  <div><font size="3"><div class="sites-embed-align-center-wrapping-off"><div class="sites-embed-border-on sites-embed" style="width:425px;"><h4 class="sites-embed-title">Vídeo de YouTube</h4><div class="sites-embed-content sites-embed-type-youtube"><iframe title="YouTube video player" class="youtube-player" type="text/html" src="https://www.youtube.com/embed/4BA8sODC4FQ?rel=0&amp;wmode=opaque" frameborder="0" allowFullScreen="true" width="425" height="355"></iframe></div></div></div></font></div><font size="3"><div><font size="3"><br /></font></div></font></div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page3">
+	<div data-role="header">
+		<h1>EIGRP</h1>
+	</div>
+	<div data-role="content">
+	  <p>El EIGRP es una versión mejorada de IGRP. La tecnología de vector de   igual distancia que se usa en IGRP también se emplea en EIGRP. Además,   la información de la distancia subyacente no presenta cambios. Las   propiedades de convergencia y la eficacia de operación de este protocolo   han mejorado significativamente. Esto permite una arquitectura mejorada   y, a la vez, retiene la inversión existente en IGRP. </p>
+      <p>La tecnología de convergencia está basada en una investigación   realizada en SRI International. El algoritmo difusor de actualización   (DUAL) es el algoritmo usado para obtener la loop-libertad en cada   instante en un cómputo de la ruta. Esto les permite a todos los routers   involucrados en una topología cambiar para sincronizarse al mismo   tiempo. Los routers que no se ven afectados por los cambios de topología   no se incluyen en el recálculo. El tiempo de convergencia con DUAL   compite con el de cualquier otro protocolo de ruteo existente. </p>
+      <p>EIGRP ha sido extendido para que sea independiente del protocolo   de la capa de red, y así permita que DUAL soporte otros conjuntos de   protocolos. </p>
+      <h2> <a name="eigrp_work">¿Cómo funciona EIGRP?</a></h2>
+      <p>EIGRP tiene cuatro componentes básicos: </p>
+      <ul>
+        <li>
+          <p>Recuperación/Detección de vecino</p>
+        </li>
+        <li>
+          <p>Protocolo de transporte confiable</p>
+        </li>
+        <li>
+          <p>Máquina de estados finitos DUAL</p>
+        </li>
+        <li>
+          <p>Módulos dependientes del protocolo</p>
+        </li>
+      </ul>
+      <p>La detección o recuperación de vecinos es el proceso que utilizan   los routers para aprender dinámicamente de otros routers conectados   directamente a sus redes. Los routers también deben detectar cuando sus   vecinos se vuelven inalcanzables o dejan de funcionar. Este proceso se   logra con carga general baja al enviar pequeños paquetes de saludo.   Mientras se reciben paquetes de saludo, un router puede determinar que   un vecino está activo y en funcionamiento. Una vez que esto se   determina, los routers de la vecindad pueden intercambiar información   del ruteo. </p>
+      <p>El transporte confiable es responsable de garantizado, las   entregas ordenadas de paquete EIGRP a todos los vecinos. Soporta la   transmisión de multicast o los paquetes de unidifusión entremezclados.   Algunos paquetes EIGRP deben transmitirse de manera confiable, mientras   que para otros esto no es necesario. Para mayor eficacia, la   confiabilidad sólo se brinda cuando es necesaria. Por ejemplo, en una   red de acceso múltiple que tiene capacidades de multidifusión, tal como   Ethernet, no es necesario enviar saludos confiables a todos los vecinos   en forma individual. Entonces, EIGRP envía un saludo de multidifusión   único con una indicación en el paquete que informa a los receptores que   dicho paquete no necesita ser reconocido. Otros tipos de paquetes, como   las actualizaciones, requieren reconocimiento y eso se indica en el   paquete. El transporte confiable tiene una disposición de enviar los   paquetes de multidifusión rápidamente cuando hay paquetes sin acuse de   recibo pendientes. Esto ayuda a asegurar que el tiempo de convergencia   permanezca lento ante la presencia de links con distintas velocidades. </p>
+      <p>La máquina de estados finitos DUAL contiene el proceso de decisión   de todos los cálculos de rutas. Rastrea todas las rutas anunciadas por   todos los vecinos. La información de distancia, conocida como métrica,   se usa mediante DUAL para seleccionar trayectos eficientes sin loops.   DUAL selecciona las rutas que se insertarán en una tabla de ruteo, según   los sucesores factibles. Un sucesor es un router vecino utilizado para   el reenvío de paquetes que tenga el trayecto de menor costo a un destino   que no es parte de un loop de ruteo. Cuando no existen sucesores   factibles, pero si hay vecinos que anuncian el destino, se debe realizar   un recálculo. Éste es el proceso donde se determina un nuevo sucesor.   La cantidad de tiempo necesario para volver a calcular la ruta afecta el   tiempo de convergencia. Aún cuando el recálculo no es un procesador   intensivo, resulta ventajoso para evitar el recálculo si no fuera   necesario. Cuando ocurre un cambio de topología, DUAL prueba sucesores   factibles. Si hay sucesores factibles, utilizará ningunos que encuentre   para evitar cualquier recálculo innecesario.</p>
+      <p>Los módulos dependientes de protocolo son responsables de la capa   de red, los requisitos del protocol específico. Por ejemplo, el módulo   IP-EIGRP es responsable del envío y de la recepción de paquetes EIGRP   que son encapsulados en IP. El IP-EIGRP es responsable de analizar los   paquetes EIGRP y la información DUALES de la nueva información recibida.   IP-EIGRP solicita a DUAL efectuar decisiones de ruteo, cuyos resultados   se almacenan en la tabla de IP Routing. IP-EIGRP es responsable de   redistribuir las rutas aprendidas en otros protocolos de IP Routing. </p>
+      <h2> <a name="eigrp_work">Paquetes EIGRP</a></h2>
+      <img src="eigrp-1.png">
+      <pre>&nbsp;</pre>
+      <p>&nbsp;</p>
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page4">
+	<div data-role="header">
+		<h1>OSPF</h1>
+	</div>
+	<div data-role="content">
+	  <p>Open Shortest Path First (OSPF), Primer Camino Más Corto, es un protocolo de red para encaminamiento jerárquico de pasarela interior o Interior Gateway Protocol (IGP), que usa el algoritmo Dijkstra, para calcular la ruta más corta entre dos nodos.</p>
+	  <p>Su medida de métrica se denomina cost, y tiene en cuenta diversos parámetros tales como el ancho de banda y la congestión de los enlaces. OSPF construye además una base de datos enlace-estado (Link-State Database, LSDB) idéntica en todos los routers de la zona.</p>
+	  <p>OSPF puede operar con seguridad usando MD5 para autenticar sus puntos antes de realizar nuevas rutas y antes de aceptar avisos de enlace-estado.</p>
+	  <p>OSPF es probablemente el protocolo IGP más utilizado en redes grandes; IS-IS, otro protocolo de encaminamiento dinámico de enlace-estado, es más común en grandes proveedores de servicios. Como sucesor natural de RIP, acepta VLSM y CIDR desde su inicio. A lo largo del tiempo, se han ido creando nuevas versiones, como OSPFv3 que soporta IPv6 o las extensiones multidifusión para OSPF (MOSPF), aunque no están demasiado extendidas. OSPF puede &quot;etiquetar&quot; rutas y propagar esas etiquetas por otras rutas.</p>
+	  <p>Una red OSPF se puede descomponer en regiones (áreas) más pequeñas. Hay un área especial llamada área backbone que forma la parte central de la red a la que se encuentran conectadas el resto de áreas de la misma. Las rutas entre las diferentes áreas circulan siempre por el backbone, por lo tanto todas las áreas deben conectar con el backbone. Si no es posible hacer una conexión directa con el backbone, se puede hacer un enlace virtual entre redes.</p>
+	  <p>Los routers (también conocidos como encaminadores) en el mismo dominio de multidifusión o en el extremo de un enlace punto-a-punto forman enlaces cuando se descubren los unos a los otros. En un segmento de red Ethernet los routers eligen a un router designado (Designated Router, DR) y un router designado secundario o de copia (Backup Designated Router, BDR) que actúan como hubs para reducir el tráfico entre los diferentes routers. OSPF puede usar tanto multidifusiones (multicast) como unidifusiones (unicast) para enviar paquetes de bienvenida y actualizaciones de enlace-estado. Las direcciones de multidifusión usadas son 224.0.0.5 y 224.0.0.6. Al contrario que RIP o BGP, OSPF no usa ni TCP ni UDP, sino que se encapsula directamente sobre el protocolo IP poniendo &quot;89&quot; en el campo protocolo. </p>
+      <h2> <a name="eigrp_work">Tipos de LSA (Link-state advertisement)</a></h2>
+      <img src="ospf-1.png">
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+<div data-role="page" id="page5">
+	<div data-role="header">
+		<h1>BGP</h1>
+	</div>
+	<div data-role="content">
+	  <p>BGP  es  el  protocolo  de  encaminamiento  EGP  más  utilizado  en  Internet.  </p>
+	  <p>La 
+	  versión  1  de  este  protocolo  (RFC  1105)  apareció  en  1989  para  sustituir  a  EGP. <br>
+	  Posteriormente,  salieron  nuevas  versiones 
+	  como  la  versión  2  en  1990  (RFC  1163)  y  la 
+	  versión  3  en  1991  (RFC  1267).  Finalmente  apareció  la  versión  4  (RFC  1771  y  RFC 
+	  4271) que proporciona soporte para CIDR (
+	  Classless Interdomain Routing
+	  ). </p>
+	  <p>	  BGP es un protocolo que funciona sobre TCP por el puerto 179. BGP permite el encaminamiento  de  los  paquetes  IP  que  se  intercambian  entre  los  distintos  AS.  Para 
+	  ello,  es  necesario  el  intercambio  de  prefijos 
+	  de  rutas  entre  los  diferentes  AS  de  forma 
+	  dinámica, lo cual se lleva a cabo mediante el establecimiento de sesiones BGP inter-AS 
+sobre  onexiones  TCP.  Este  tipo  de  operación  proporciona  comunicación  fiable  y 
+esconde todos los detalles de 
+la red por la que se pasa. </p>
+	  <p>	    Debido a que en cada AS se utiliza un protocolo IGP con una definición distinta 
+	    para  el  coste  de  los  enlaces,  es  imposible	    encontrar  el  camino  más  corto  hacia  cada 
+	    destino. Por ello, una vez se han aplicado las restricciones sobre 
+	    las rutas, BGP utiliza 
+	    un  algoritmo similar  al  tipo  ve	    ctor  de  distancia,  llamado 
+	    path-vector,  para  seleccionar 
+	    aquellas rutas que impliquen el mínimo número de AS a atravesar. </p>
+	  <p>	    Las  tablas  de  encaminamiento  de  BGP 
+	    almacenan  rutas  para  alcanzar  redes 
+	    (indicadas  mediante  prefijos).  Las  rutas  están  formadas  por  una  secuencia  de  números 
+	    de sistemas autónomos que se deben seguir 
+	    para alcanzar el prefijo indicado. El último 
+	    número  de  AS  de  la  ruta  se  corresponde  con  la  organización  que  tiene  registrado  el 
+	    prefijo,  es  decir,  el  AS  donde  se  encuentra  el  destino.  El  principal  motivo  para 
+	    almacenar  la  ruta  completa  es  la  detección  y  eliminación  de  bucles  (
+	    loops	    )  para  evitar 
+      que los paquetes se envíen de forma infinita pasando varias veces por un mismo AS. </p>
+      <h2> <a name="IGP-BGP">IGP - BGP </a></h2>
+      <img src="BGP-1.jpg">
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+  </div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+</body>
+</html>
